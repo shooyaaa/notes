@@ -1,0 +1,3 @@
+Mysql Notes
+    1. invoking explain
+        
