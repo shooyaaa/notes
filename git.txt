@@ -1,0 +1,4 @@
+git stash
+    暂存不想commit的工作内容到暂存区，方便想用时找回
+    git stash apply 应用最近的stash
+    git stash list 列出所有stash列表

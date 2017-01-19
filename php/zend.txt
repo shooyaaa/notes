@@ -1,0 +1,2 @@
+compile php的git分支先运行./buildconf --force重新生成configure文件否则会报错,如果没有安装libxml2-dev会提示找不到xml22-config
+ configure 的时候加上--enable-debug参数可以编译debug版本的php，调试ext的时候可以直接在文件行号加断点，有时候一些变量可能需要代码运行到特定位置的才会初始化，mac下面调试的话打印全局变量有问题

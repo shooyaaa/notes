@@ -1,3 +1,26 @@
 Mysql Notes
     1. invoking explain
+
+
+    2. Mysql join策略
+        mysql 把所有的select query都当做join来执行，包括简单的select， 子查询（page 220), 
+        example
+            select tbl1.col1, tbl2.col2 from tbl1 inner join tbl2 using (col3) where tbl1.col1 in (5,6)
+            
+            outer_iter = iterator over tbl1 where col1 IN(5,6) outer_row = outer_iter.next
+            while outer_row
+                inner_iter = iterator over tbl2 where col3 = outer_row.col3 
+                inner_row = inner_iter.next
+                while inner_row
+                    output [ outer_row.col1, inner_row.col2 ]
+                    inner_row = inner_iter.next 
+                end
+                outer_row = outer_iter.next end
+            end
+        mysql 执行所有的复杂query用这种多层循环的方式，比如子查询，mysql先执行子查询，然后把子查询放到temporary table，然后把临时表当做一个常规表（derived table）进行主查询. union 也是用这种方式操作。
+
+    3. The execution plan
+        使用explain extended (query) show warnings, 可以看到mysql给出构造完成的查询计划
+
+    4. filesort 不一定是真正在磁盘里排序，mysql把内存排序也叫filesort
         
