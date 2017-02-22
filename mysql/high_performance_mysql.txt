@@ -3,17 +3,17 @@ Mysql Notes
 
 
     2. Mysql join策略
-        mysql 把所有的select query都当做join来执行，包括简单的select， 子查询（page 220), 
+        mysql 把所有的select query都当做join来执行，包括简单的select， 子查询（page 220),
         example
             select tbl1.col1, tbl2.col2 from tbl1 inner join tbl2 using (col3) where tbl1.col1 in (5,6)
-            
+
             outer_iter = iterator over tbl1 where col1 IN(5,6) outer_row = outer_iter.next
             while outer_row
-                inner_iter = iterator over tbl2 where col3 = outer_row.col3 
+                inner_iter = iterator over tbl2 where col3 = outer_row.col3
                 inner_row = inner_iter.next
                 while inner_row
                     output [ outer_row.col1, inner_row.col2 ]
-                    inner_row = inner_iter.next 
+                    inner_row = inner_iter.next
                 end
                 outer_row = outer_iter.next end
             end
@@ -23,4 +23,5 @@ Mysql Notes
         使用explain extended (query) show warnings, 可以看到mysql给出构造完成的查询计划
 
     4. filesort 不一定是真正在磁盘里排序，mysql把内存排序也叫filesort
-        
+
+    5. mysql 的count(*)和别的db意义不一样，如果不知道其中的差别，要用count(*)
