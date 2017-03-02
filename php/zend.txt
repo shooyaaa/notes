@@ -1,2 +1,13 @@
-compile php的git分支先运行./buildconf --force重新生成configure文件否则会报错,如果没有安装libxml2-dev会提示找不到xml22-config
- configure 的时候加上--enable-debug参数可以编译debug版本的php，调试ext的时候可以直接在文件行号加断点，有时候一些变量可能需要代码运行到特定位置的才会初始化，mac下面调试的话打印全局变量有问题
+  1.  compile php的git分支先运行./buildconf --force重新生成configure文件否则会报错,如果没有安装libxml2-dev会提示找不到xml22-config
+  2. configure 的时候加上--enable-debug参数可以编译debug版本的php，调试ext的时候可以直接在文件行号加断点，有时候一些变量可能需要代码运行到特定位置的才会初始化，mac下面调试的话打印全局变量有问题
+
+  3. Zend 有一个全局的变量executor_globals来保存基本上所有php的相关变量
+
+  4. 赋值的zend相关函数式zend_do_assign
+
+  5. 在gdb里面导入php源码根目录的(source .gdbinit)文件, 有很多预定义的函数可以使用print_ht(&ht)可以打印hashtable
+
+  6. zval的定义在zend.h里面（zvalue_value）
+
+  7. php 脚本执行顺序呢php_execute_scripts -> zend_execute_scripts -> zend_compile_file(可以hook，默认是zend_language_scanner.l里面的compile_file) -> zend_execute(可以hook，执行op_array)
+        其中compile_file调用zendparse（yyparse的别名, 会调用lex_scan做词法分析）去把php脚本转换成op_array
