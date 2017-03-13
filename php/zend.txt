@@ -11,3 +11,7 @@
 
   7. php 脚本执行顺序呢php_execute_scripts -> zend_execute_scripts -> zend_compile_file(可以hook，默认是zend_language_scanner.l里面的compile_file) -> zend_execute(可以hook，执行op_array)
         其中compile_file调用zendparse（yyparse的别名, 会调用lex_scan做词法分析）去把php脚本转换成op_array
+
+  8. 如何追踪php代码的执行过程，gdb php，运行你的php文件(r test.php), 在zend_execute加断点(b zend_execute),p op_array->opcodes[0]打印出你希望看的代码的opcode，在输出中查看opcode的handler （handler = 0x9326f1 <ZEND_INIT_ARRAY_SPEC_CONST_UNUSED_HANDLER>)在handler加断点。
+
+ 9. 你声明的全局变量都在executor_globals->symbol_table里面，如何打印出一个zval里面的数组先打印初zval，然后拿到zval->value里面ht的地址address，直接调用print_ht address就可以了，当然你要先source .gdbinit
