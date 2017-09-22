@@ -13,3 +13,19 @@
 4. set paste 可以进入粘贴模式，可以使用ctrl+v粘贴
 
 5. :g/regex/cmd  这个命令对于符合正则regex的内容执行cmd， 例子 :g/^$/d 删除所有的空白行
+
+6. ce<str> 移cursor动到行尾， 用str替换整行
+
+7. .(dot) 可以重复上个edit command （insert model ？）
+
+8. % 匹配大小中括号，如果cursor不在括号上面，会向右搜索找到第一个并匹配 c% 可以很方便的删除一个函数调用 func(a,b) 将cursor放到f
+
+9. dt<char> 删除直到char的内容，di<})\>'"> 删除包含在括号引号的内容
+
+10. 'H'ighest 'M'iddle 'L'ower 分别跳到第一行，中间行，最后一行
+
+11. zt, zz, zb 分别将cursor所在行移动到最高，中间，最后位置
+
+12. * 搜索下一次出现位置， #搜索上一次
+
+13. [count]CTRL+A|X 对一个数字加|减 count 没有count则是1
