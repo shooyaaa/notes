@@ -11,3 +11,5 @@
 
 
 3. Top 命令中会有一列S(linux)，可能值包括D（blocking），S(sleep)，可以用来看进程的状态，从而推断性能瓶颈（Nginx）
+
+4. lsof 命令可以列出所有系统打开的文件，包括socket文件，很好的debug工具
