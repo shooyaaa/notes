@@ -20,3 +20,5 @@
 10. 在gdb中使用bt可以查看栈调用
 
 11. phpdbg -p* <test.php>可以查看opcodes
+
+12. 在编译的时候znode 数据结构会传给lex_scan做词法分析，然后结果就在zendlval里面:
