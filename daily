@@ -23,3 +23,5 @@
 8.packetbeat 基于应用协议分析网络流量tcpdump的细化版
 
 9. pcap 编程网络
+
+10. rk 键盘 Fn + 左Ctrl 切换功能键, Fn + Tab|q|w|e 切换蓝牙或者有线
