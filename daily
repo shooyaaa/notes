@@ -29,3 +29,5 @@
 11. nginx 对于fastcgi有一系列的buffer参数，可以控制是否缓存来自fastcgi的输出到client，其中有一个开关可以通过X-Accel-Buffering: no，这个header来控制达到将php的输出实时传送到client的目的
 
 12. linux 性能分析system call ftrace ，工具perf ，kernel 4.5添加了tcp tracepoints可以根据tcp状态转换和tcp丢包或者链接饱和
+
+13. 对于耗时或者大量io命令如果希望看到进度， pv可以实现进度监控
