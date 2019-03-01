@@ -31,3 +31,6 @@
 12. linux 性能分析system call ftrace ，工具perf ，kernel 4.5添加了tcp tracepoints可以根据tcp状态转换和tcp丢包或者链接饱和
 
 13. 对于耗时或者大量io命令如果希望看到进度， pv可以实现进度监控
+
+14. while true; do pid=$(pgrep 'processname' | head -1); if [[ -n "$pid" ]];
+then strace  -s 2000 -vvtf -p "$pid"; break; fi; done 可以trace一个将要执行的命令
