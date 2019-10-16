@@ -25,3 +25,7 @@ Mysql Notes
     4. filesort 不一定是真正在磁盘里排序，mysql把内存排序也叫filesort
 
     5. mysql 的count(*)和别的db意义不一样，如果不知道其中的差别，要用count(*)
+
+    5. show profile 命令是single query 的profile 工具, show status 也是
+
+    6. mysql 的blob和text字段排序的时候是按照max_sort_length这个变量来的，
