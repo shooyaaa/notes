@@ -24,7 +24,7 @@
 
 9. pcap 编程网络
 
-10. rk 键盘 Fn + 左Ctrl 切换功能键, Fn + Tab|q|w|e 切换蓝牙或者有线
+10. rk 键盘 Fn + 左Ctrl 切换功能键, Fn + Tab|q|w|e 切换蓝牙或者有线, 长按Fn + Tab|q|w|e可以开始配对蓝牙
 
 11. nginx 对于fastcgi有一系列的buffer参数，可以控制是否缓存来自fastcgi的输出到client，其中有一个开关可以通过X-Accel-Buffering: no，这个header来控制达到将php的输出实时传送到client的目的
 
